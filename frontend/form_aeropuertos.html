@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <title>Vuela facil</title>
+</head>
+<body>
+    <header class="container">
+        <nav class="d-flex flex-wrap justify-content-center py-3 mb-4 border-botom">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+            <img src="img\airplane.png" height="32" />
+            <span class="fs-4">Vuelafácil.com</span>
+            </a>
+
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="index.html" class="nav-link">Inicio</a></li>
+                <li class="nav-item"><a href="ciudades.html" class="nav-link">Ciudades</a></li>
+                <li class="nav-item"><a href="aeropuertos.html" class="nav-link">Aeropuertos</a></li>
+                <li class="nav-item"><a href="rutas.html" class="nav-link">Rutas</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="container">
+        <div class="row align-items-center mb-4">
+            <span class="fw-bold w-auto">Formulario aeropuertos</span>
+        </div>
+        <div class="row">
+            <form id="form-airport" class="mt-4" action="" onsubmit="" method="POST">
+                <input type="hidden" id="airport-id"/>
+                <div class="mb-3">
+                    <label for="airport-name" class="form-label">Nombre aeropuerto</label>
+                    <input type="text" class="form-control" id="airport-name" name="airport-name">
+                </div>
+                <div class="mb-3">
+                    <label for="city-id" class="form-label">Id ciudad</label>
+                    <input type="numeric" class="form-control" id="city-id" name="city-id">
+                </div>
+                <button type="button" class="btn btn-primary" onclick="saveAirport()">Guardar</button>
+            </form>
+
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <script src="js/request.js"></script>
+    <script src="js/aeropuertos.js"></script>
+    <script>
+        window.onload = function(){
+            const urlParams = new URLSearchParams(window.location.search);
+            if(urlParams.get('id') != null)
+                loadAirport(urlParams.get('id'))
+        }
+    </script>
+</body>
+</html>
